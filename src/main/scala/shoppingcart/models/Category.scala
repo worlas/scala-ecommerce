@@ -1,13 +1,13 @@
 package shoppingcart.models
 
-case class Category(Id : Int, Name : String, Description : String)
+case class Category(id : Int, name : String, description : String)
 
 object Category {
-  private val categoryList : Map[Int, Category] = Map()
-  private val productList : List[Product] = List()
+  private var categoryList : Map[Int, Category] = Map()
+  private var productList : List[Product] = List()
 
   // add new category
-  def add(category: Category) : Unit = {}
+  def add(category: Category) : Unit = { categoryList += category.id -> category }
 
   // get single category
   def view(categoryId : Int) : Category = { categoryList.getOrElse(categoryId, throw new RuntimeException) }
